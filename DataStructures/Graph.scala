@@ -39,9 +39,8 @@ class Graph {
     valid
   }
 
+// Return true if the two nodes are connected by a path, false otherwise
   def areConnected(index1: Int, index2: Int): Boolean = {
-    // TODO: Return true if the two nodes are connected by a path, false otherwise
-
     var explored: Set[Int] = Set(index1)
     val toExplore: Queue[Int] = new Queue()
     toExplore.enqueue(index1)
@@ -60,10 +59,9 @@ class Graph {
     }
     false
   }
-
+//   BFS to find and store the path from index1 tile to index2 tile
+//   Returns a list of tiles considered a "path" from index1 to index2
   def distance(index1: Int, index2: Int): List[MapTile] = {
-    // TODO: Return the distance between index1 and index2 in this graph
-    // You may assume that the two nodes are connected
     var explored: Set[Int] = Set(index1)
     var mapNode: Map[Int, Int] = Map()
     var pathList: List[MapTile] = List()
@@ -72,14 +70,13 @@ class Graph {
     toExplore.enqueue(index1)
     while (!toExplore.empty()) {
       val nodeToExplore = toExplore.dequeue()
-      for (node <- this.adjacencyList(nodeToExplore) if this.nodes(node).passable) {//if statement to skip over water tiles
+      for (node <- this.adjacencyList(nodeToExplore) if this.nodes(node).passable) {
         if(!explored.contains(node)){
-//          println("exploring: " + this.nodes(node))
           toExplore.enqueue(node)
           explored = explored + node
           mapNode += (node -> nodeToExplore)
           if(node == index2){
-            var startNode: Int = node // so that it doesn't equal index1 when starting
+            var startNode: Int = node
             while(startNode != index1){
               startNode = mapNode(startNode)
               pathList = pathList :+ this.nodes(startNode)
