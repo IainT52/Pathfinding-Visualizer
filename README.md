@@ -7,12 +7,13 @@ water tiles. Water tiles create a boundary for the 2D world.
 ## Simple 2D world
 ![](img-readme/pathfinding.PNG)
 
+ - Dark Blue circle represents a player
  - Blue tiles represent impassable water tiles
  - Green tiles represent passable forest tiles
  - Light green tiles represent passable grass tiles
  - Yellow/Brown tiles represent passable mountain tiles
  
- # Future of this project
+ ## Future of this project
  
  I plan to improve upon this project to enable a user to create a custom map. On top of this, a user
  will be able to add "weights" (speed of traversal through a tile) to create a weighted graph of tiles.
